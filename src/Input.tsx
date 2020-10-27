@@ -1,5 +1,6 @@
 import React from "react"
-
+import { Input as AntdInput } from 'antd';
+import { Button } from 'antd';
 
 type InputProps = {
     placeholder: string
@@ -7,24 +8,27 @@ type InputProps = {
     onSubmit: (value: string) => void
 }
 const Input = (props: InputProps) => {
+
     const [value, setValue] = React.useState("")
 
     const HandleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value);
     }
-    const HandleButtonClick = () => {
+    const HandleButtonClick = (even: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         props.onSubmit(value)
     }
     return (
-        <div>
-            <input
+        <div style={{ display: "flex" }}>
+            <AntdInput
                 placeholder={props.placeholder}
                 type="text"
                 onChange={HandleInputChange}
                 value={value} />
-            <button onClick={HandleButtonClick}>{props.label}</button>
+            <Button onClick={HandleButtonClick} type="primary">{props.label}</Button>
         </div>
     )
 }
+
+
 
 export default Input

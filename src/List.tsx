@@ -1,5 +1,6 @@
 import React from 'react'
 import ListItem from './ListItem'
+import { List as AntdList } from 'antd';
 
 type ListProps = {
     items: string[]
@@ -8,16 +9,19 @@ type ListProps = {
 }
 
 const List = (props: ListProps) => {
+
     return (
         <div>
-            {props.items.map((item, index) => {
-                return <ListItem
-                    onDeleteItemPunyaListItem={props.onDeleteItemPunyaList}
-                    onEditTodoPunyaListItem={props.onEditTodoPunyaList}
-                    index={index}
-                    item={item}
-                    buttonDeleteLabel="Delete" />
-            })}
+            <AntdList
+                dataSource={props.items}
+                renderItem={(item, index) => {
+                    return <ListItem
+                        onDeleteItemPunyaListItem={props.onDeleteItemPunyaList}
+                        onEditTodoPunyaListItem={props.onEditTodoPunyaList}
+                        index={index}
+                        item={item}
+                        buttonDeleteLabel="Delete" />
+                }} />
         </div>
     )
 }

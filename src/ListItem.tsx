@@ -1,4 +1,9 @@
 import React from "react"
+import {
+    DeleteOutlined,
+} from "@ant-design/icons";
+import { Button } from 'antd';
+import { Input as AntdInput } from 'antd';
 
 type ListItemProps = {
     item: string
@@ -40,8 +45,8 @@ const ListItem = (props: ListItemProps) => {
 
     return (
         <div style={{ display: "flex" }}>
-            {isEditing ? <input autoFocus onBlur={handleInputBlur} onChange={handleInputValue} onKeyDown={handleInputKeyDown} type="text" value={value} /> : <h1 onClick={handleTextClick}>{props.item}</h1>}
-            <button onClick={deleteItem}>{props.buttonDeleteLabel}</button>
+            {isEditing ? <AntdInput autoFocus onBlur={handleInputBlur} onChange={handleInputValue} onKeyDown={handleInputKeyDown} type="text" value={value} /> : <h1 onClick={handleTextClick}>{props.item}</h1>}
+            <Button onClick={deleteItem} type="primary" danger > <DeleteOutlined /> {props.buttonDeleteLabel}</Button>
         </div>
     )
 }

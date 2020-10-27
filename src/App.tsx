@@ -4,7 +4,7 @@ import List from "./List"
 
 function App() {
   // tentukan type menggunakan generic type
-  const [todos, setTodos] = React.useState<string[]>(["makan", "minum", "coding"])
+  const [todos, setTodos] = React.useState<string[]>(["Makan", "Minum", "Coding"])
 
   const handleAddTodo = (newTodo: string) => {
     setTodos([...todos, newTodo])
@@ -21,7 +21,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div style={{ width: 400 }}>
       <h1> Todo List </h1>
       <Input
         placeholder="masukan kegiatan"
