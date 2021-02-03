@@ -1,34 +1,34 @@
-import React from "react"
-import { Input as AntdInput } from 'antd';
-import { Button } from 'antd';
+import React from "react";
+import { Input as AntdInput, Button } from "antd";
 
 type InputProps = {
-    placeholder: string
-    label: string
-    onSubmit: (value: string) => void
-}
-const Input = (props: InputProps) => {
+  placeholder: string;
+  label: string;
+  onSubmit: (value: string) => void;
+};
+const Input = ({ placeholder, label, onSubmit }: InputProps) => {
+  const [value, setValue] = React.useState("");
 
-    const [value, setValue] = React.useState("")
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value);
+  };
+  const handleButtonClick = () => {
+    onSubmit(value);
+  };
 
-    const HandleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setValue(event.target.value);
-    }
-    const HandleButtonClick = (even: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        props.onSubmit(value)
-    }
-    return (
-        <div style={{ display: "flex" }}>
-            <AntdInput
-                placeholder={props.placeholder}
-                type="text"
-                onChange={HandleInputChange}
-                value={value} />
-            <Button onClick={HandleButtonClick} type="primary">{props.label}</Button>
-        </div>
-    )
-}
+  return (
+    <div style={{ display: "flex" }}>
+      <AntdInput
+        placeholder={placeholder}
+        type="text"
+        onChange={handleInputChange}
+        value={value}
+      />
+      <Button onClick={handleButtonClick} type="primary">
+        {label}
+      </Button>
+    </div>
+  );
+};
 
-
-
-export default Input
+export default Input;

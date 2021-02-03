@@ -8,16 +8,16 @@ type ListProps = {
     onEditTodoPunyaList: (newTodo: string, targetIndex: number) => void
 }
 
-const List = (props: ListProps) => {
+const List = ({ items, onDeleteItemPunyaList, onEditTodoPunyaList }: ListProps) => {
 
     return (
         <div>
             <AntdList
-                dataSource={props.items}
+                dataSource={items}
                 renderItem={(item, index) => {
                     return <ListItem
-                        onDeleteItemPunyaListItem={props.onDeleteItemPunyaList}
-                        onEditTodoPunyaListItem={props.onEditTodoPunyaList}
+                        onDeleteItemPunyaListItem={onDeleteItemPunyaList}
+                        onEditTodoPunyaListItem={onEditTodoPunyaList}
                         index={index}
                         item={item}
                         buttonDeleteLabel="Delete" />
