@@ -48,6 +48,7 @@ const ListItem = ({
     <div style={{ display: "flex" }}>
       {isEditing ? (
         <AntdInput
+          aria-label="Minum"
           autoFocus
           onBlur={handleInputBlur}
           onChange={handleInputValue}
@@ -62,7 +63,6 @@ const ListItem = ({
         {" "}
         <DeleteOutlined /> {buttonDeleteLabel}
       </Button>
-      <p> Saya sedang {item}</p>
     </div>
   );
 };

@@ -17,6 +17,6 @@ describe("Input", () => {
         userEvent.click(screen.getByRole("button"))
 
         expect(onSubmit).toBeCalledTimes(1)
-        expect(onSubmit).toBeCalledWith(value)
+        expect(onSubmit).toBeCalledWith(value)        
     })
 })
